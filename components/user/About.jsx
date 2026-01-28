@@ -2,13 +2,13 @@
 import useAlert from "@/hooks/useAlert";
 import APIRequest from "@/utils/APIRequest";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 
 const About = () => {
   const [aboutData, setAboutData] = useState(null);
   const { publishNotification } = useAlert();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     getAboutSectionData();
   }, []);
   const getAboutSectionData = async () => {
@@ -35,9 +35,11 @@ const About = () => {
           {aboutData?.description}
         </h1>
       </div>
-      <div className="p-8 rounded-4xl bg-[#F4F5F6]">
-        <Image src={aboutData?.image} alt="About" width={400} height={250} />
-      </div>
+      {aboutData && (
+        <div className="p-8 rounded-4xl bg-[#F4F5F6]">
+          <Image src={aboutData?.image} alt="About" width={400} height={250} />
+        </div>
+      )}
     </div>
   );
 };

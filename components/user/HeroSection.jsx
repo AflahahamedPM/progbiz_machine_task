@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import elipseShape from "@/assets/elipseShape.png";
 import gsap from "gsap";
 import APIRequest from "@/utils/APIRequest";
@@ -8,7 +8,6 @@ import useAlert from "@/hooks/useAlert";
 import customerFaces from "@/assets/customerFaces.png";
 import appleLogo from "@/assets/appleLogo.png";
 import playstoreLogo from "@/assets/playstoreLogo.png";
-import { Button } from "../ui/button";
 import DownloadButtons from "./DownloadButtons";
 
 const HeroSection = () => {
@@ -20,7 +19,7 @@ const HeroSection = () => {
     { imageUrl: playstoreLogo, alt: "playstore-logo" },
   ];
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     getHerosectionData();
   }, []);
   const getHerosectionData = async () => {

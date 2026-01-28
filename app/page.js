@@ -1,4 +1,6 @@
 import About from "@/components/user/About";
+import FAQ from "@/components/user/FAQ";
+import Footer from "@/components/user/Footer";
 import Header from "@/components/user/Header";
 import HeroSection from "@/components/user/HeroSection";
 import Testimonials from "@/components/user/Testimonials";
@@ -11,6 +13,8 @@ export default function Home() {
       <HeroSection />
       <About />
       <Testimonials />
+      <FAQ />
+      <Footer />
     </div>
   );
 }
